@@ -1,13 +1,11 @@
 package com.devari.loginUsuario.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.repository.query.Param;
 
 @Getter
 @Setter
@@ -19,7 +17,11 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name", unique = true, nullable = false)
     private String name;
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
+    @Column(name = "password", nullable = false)
+    private String password;
 
 }
