@@ -28,6 +28,6 @@ public class UsuarioService {
     public Usuario upload(Long id, Usuario usuario){
         Usuario usuarioDb = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario not found"));
         usuarioDb.setName(usuario.getName());
-        return usuarioRepository.save(usuario);
+        return usuarioRepository.save(usuarioDb);
     }
 }
