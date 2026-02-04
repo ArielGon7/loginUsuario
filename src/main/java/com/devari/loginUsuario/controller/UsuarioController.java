@@ -3,7 +3,6 @@ package com.devari.loginUsuario.controller;
 import com.devari.loginUsuario.entity.Usuario;
 import com.devari.loginUsuario.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +16,7 @@ public class UsuarioController {
 
     @GetMapping
     public List<Usuario> findByAll(){
-        return usuarioService.findByAll();
+        return usuarioService.findAll();
     }
 
     @PostMapping
