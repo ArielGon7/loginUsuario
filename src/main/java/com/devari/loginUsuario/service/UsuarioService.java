@@ -18,6 +18,9 @@ public class UsuarioService {
     }
 
     public Usuario save(Usuario usuario) {
+        if (usuario.getName() == null || usuario.getName().isBlank()){
+            throw new IllegalArgumentException("name is empty or null");
+        }
         return usuarioRepository.save(usuario);
     }
 
