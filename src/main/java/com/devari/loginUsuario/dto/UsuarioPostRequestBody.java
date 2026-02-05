@@ -1,7 +1,6 @@
 package com.devari.loginUsuario.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
