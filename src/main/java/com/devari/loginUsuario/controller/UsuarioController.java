@@ -1,5 +1,6 @@
 package com.devari.loginUsuario.controller;
 
+import com.devari.loginUsuario.dto.UsuarioRecord;
 import com.devari.loginUsuario.dto.UsuarioRequestDTO;
 import com.devari.loginUsuario.dto.UsuarioResponseDTO;
 import com.devari.loginUsuario.entity.Usuario;
@@ -19,7 +20,7 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<List<UsuarioResponseDTO>> findByAll(){
+    public ResponseEntity<List<UsuarioRecord>> findByAll(){
         return ResponseEntity.ok(usuarioService.findAll());
     }
 
@@ -39,9 +40,14 @@ public class UsuarioController {
         return ResponseEntity.noContent().build();
     }
 
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody Usuario usuario){
+//        return ResponseEntity.ok(usuarioService.update(id, usuario));
+//    }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody Usuario usuario){
-        return ResponseEntity.ok(usuarioService.update(id, usuario));
+    public ResponseEntity<UsuarioResponseDTO> update(@RequestBody UsuarioRequestDTO requestDTO,@PathVariable Long id){
+        return ResponseEntity.ok(usuarioService.update(requestDTO, id));
     }
 
 

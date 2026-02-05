@@ -6,6 +6,8 @@ import lombok.Data;
 @Data
 public class UsuarioResponseDTO {
     @JsonProperty(required = true)
+    private Long id;
+    @JsonProperty(required = true)
     private String name;
     @JsonProperty(required = true)
     private String email;
