@@ -3,7 +3,6 @@ package com.devari.loginUsuario.controller;
 import com.devari.loginUsuario.dto.UsuarioRecord;
 import com.devari.loginUsuario.dto.UsuarioRequestDTO;
 import com.devari.loginUsuario.dto.UsuarioResponseDTO;
-import com.devari.loginUsuario.entity.Usuario;
 import com.devari.loginUsuario.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
