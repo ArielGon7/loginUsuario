@@ -4,6 +4,7 @@ import com.devari.loginUsuario.dto.UsuarioRecord;
 import com.devari.loginUsuario.dto.UsuarioRequestDTO;
 import com.devari.loginUsuario.dto.UsuarioResponseDTO;
 import com.devari.loginUsuario.service.UsuarioService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,8 +30,11 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioResponseDTO> save(@RequestBody UsuarioRequestDTO usuario){
-        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario));
+    public ResponseEntity<UsuarioResponseDTO> save(
+            @Valid @RequestBody UsuarioRequestDTO request
+    ) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(usuarioService.save(request));
     }
 
     @DeleteMapping("/{id}")
@@ -39,15 +43,8 @@ public class UsuarioController {
         return ResponseEntity.noContent().build();
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Usuario> update(@PathVariable Long id, @RequestBody Usuario usuario){
-//        return ResponseEntity.ok(usuarioService.update(id, usuario));
-//    }
-
     @PutMapping("/{id}")
-    public ResponseEntity<UsuarioResponseDTO> update(@RequestBody UsuarioRequestDTO requestDTO,@PathVariable Long id){
+    public ResponseEntity<UsuarioResponseDTO> update(@Valid @RequestBody UsuarioRequestDTO requestDTO,@PathVariable Long id){
         return ResponseEntity.ok(usuarioService.update(requestDTO, id));
     }
-
-
 }
